@@ -3,54 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Azure DevOps Repositories and .bm Files</title>
+    <title>Azure DevOps Repositories</title>
     <style>
       body {
         font-family: Arial, sans-serif;
+        margin: 20px;
       }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
+      h1 {
+        text-align: center;
       }
-      table,
-      th,
-      td {
-        border: 1px solid black;
-      }
-      th,
-      td {
-        padding: 8px;
-        text-align: left;
-      }
-      th {
-        background-color: #f2f2f2;
+      .chart {
+        text-align: center;
+        margin-top: 20px;
       }
     </style>
   </head>
   <body>
-    <h1>Azure DevOps Repositories and .bm Files</h1>
-
-    <h2>.bm Files</h2>
-    <table>
-      <tr>
-        <th>Site Name</th>
-        <th>Repository Name</th>
-        <th>BM File Path</th>
-      </tr>
-      {% for bm_file in bm_files_data %}
-      <tr>
-        <td>{{ bm_file["Site Name"] }}</td>
-        <td>{{ bm_file["Repository Name"] }}</td>
-        <td>{{ bm_file["BM File Path"] }}</td>
-      </tr>
-      {% endfor %}
-    </table>
-
-    <h2>Chart</h2>
-    <img
-      src="{{ url_for('static', filename='bm_files_chart.png') }}"
-      alt="BM Files Chart"
-    />
+    <h1>```html Number of ETypes ready for TestAutomation per site</h1>
+    <div class="chart">
+      <img src="data:image/png;base64,{{ chart_url }}" alt="Bar Chart" />
+    </div>
   </body>
 </html>
